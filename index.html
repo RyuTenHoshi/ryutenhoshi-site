@@ -411,67 +411,38 @@
             setTimeout(() => { modal.classList.add('hidden'); }, 300);
         }
 
-        // --- Independent Drifting Star Canvas Effect ---
-const canvas = document.getElementById('star-canvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+        const canvas = document.getElementById('star-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let stars = [];
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 
-let stars = [];
-const numStars = 200;
-
-window.addEventListener('resize', () => { 
-    canvas.width = window.innerWidth; 
-    canvas.height = window.innerHeight; 
-});
-
-class Star {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 1.5;
-        this.vx = (Math.random() - 0.5) * 0.4; 
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.alpha = Math.random();
-    }
-    draw() {
-        ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        
-        // Wrap around edges
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
-        
-        // Subtle twinkling
-        this.alpha += (Math.random() - 0.5) * 0.05;
-        if(this.alpha < 0.1) this.alpha = 0.1;
-        if(this.alpha > 0.8) this.alpha = 0.8;
-        
-        this.draw();
-    }
-}
-
-function initStars() { 
-    stars = []; 
-    for(let i = 0; i < numStars; i++) stars.push(new Star()); 
-}
-
-function animateStars() { 
-    ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    stars.forEach(star => star.update()); 
-    requestAnimationFrame(animateStars); 
-}
-
-initStars();
-animateStars();
+        class Star {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5;
+                this.vx = (Math.random() - 0.5) * 0.4; 
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.alpha = Math.random();
+            }
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0) this.x = canvas.width; if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height; if (this.y > canvas.height) this.y = 0;
+                this.alpha += (Math.random() - 0.5) * 0.05;
+                if(this.alpha < 0.1) this.alpha = 0.1; if(this.alpha > 0.8) this.alpha = 0.8;
+                this.draw();
+            }
+        }
+        for(let i=0; i<150; i++) stars.push(new Star());
+        function animateStars() { ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => star.update()); requestAnimationFrame(animateStars); }
+        animateStars();
     </script>
 </body>
 </html>
