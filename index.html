@@ -11,14 +11,13 @@
           extend: {
             colors: {
                 space: '#050511',
-                card: 'rgba(15, 23, 42, 0.4)',
+                card: 'rgba(15, 23, 42, 0.5)',
                 cyan: { 400: '#22d3ee', 500: '#06b6d4' },
-                celestial: '#d8c196' // The custom gold/orange color
+                celestial: '#d8c196',
+                purple: { 400: '#c084fc', 500: '#a855f7', 950: '#3b0764' }
             },
             fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
-            animation: {
-                'bounce-short': 'bounce-short 4s ease-in-out infinite',
-            },
+            animation: { 'bounce-short': 'bounce-short 4s ease-in-out infinite' },
             keyframes: {
                 'bounce-short': {
                     '0%, 100%': { transform: 'translateY(0)' },
@@ -30,6 +29,7 @@
       }
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
         body { color: #e2e8f0; overflow-x: hidden; font-family: 'Inter', sans-serif; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #050511; }
@@ -61,36 +61,46 @@
     </header>
 
     <section class="relative min-h-screen flex flex-col justify-center items-center px-4 text-center z-10 pt-20">
-        <a href="oracle.html" class="block cursor-pointer mb-6 animate-bounce-short hover:scale-[1.12] transition-transform duration-300 ease-out">
-            <img src="Icons.png" alt="RyuTenHoshi Logo" class="w-72 h-72 md:w-80 md:h-80 mx-auto">
-        </a>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+
+        <div class="animate-bounce-short mb-6 z-20">
+            <a href="oracle.html" class="block cursor-pointer group">
+                <img src="Icons.png" alt="RyuTenHoshi Logo" class="w-72 h-72 md:w-80 md:h-80 mx-auto transition-transform duration-500 ease-out group-hover:scale-110">
+            </a>
+        </div>
         
-        <div class="border border-cyan-900/50 bg-cyan-950/20 text-cyan-400 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-widest mb-6 uppercase flex items-center gap-2">
+        <div class="border border-cyan-900/50 bg-cyan-950/20 text-cyan-400 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-widest mb-6 uppercase flex items-center gap-2 relative z-20">
             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
             Alignment Mode: Logo Interactive for Secrets
         </div>
 
-        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4 text-gradient">RyuTen Hoshi</h1>
-        <div class="border border-celestial/30 text-celestial px-6 py-1.5 rounded text-sm font-bold tracking-widest mb-10 uppercase bg-[#d8c196]/10">
+        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4 text-gradient relative z-20">RyuTen Hoshi</h1>
+        <div class="border border-celestial/30 text-celestial px-6 py-1.5 rounded text-sm font-bold tracking-widest mb-10 uppercase bg-[#d8c196]/10 relative z-20">
             Celestial Dragon Star
         </div>
         
-        <p class="text-slate-400 max-w-3xl mb-10 leading-relaxed font-light text-sm md:text-base">
-            Long before the screens turned on and the streams began, there was only the drive to find something greater. In the quiet intersections between the digital and the real, RyuTenHoshi was forged... Welcome to the journey—let's see what we can create together.
+        <p class="text-slate-400 max-w-3xl mb-10 leading-relaxed font-light text-sm md:text-base relative z-20">
+            Long before the screens turned on and the streams began, there was only the drive to find something greater. In the quiet intersections between the digital and the real, RyuTenHoshi was forged—a name born from the union of the dragon's relentless spirit and the guiding light of the celestial star. I'm just a gamer at heart, driven by the grind and the pursuit of mastery, here to turn the static of the everyday into something legendary. This isn't just about playing games; it's about navigating the vast, unknown realms of digital space and building a community that shines just as bright. Welcome to the journey—let's see what we can create together.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-6 items-center">
-            <a href="https://discord.gg/HfxG9PK6qt" target="_blank" class="bg-celestial text-black px-8 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-white transition duration-300 flex items-center gap-2 text-xs">
+        <div class="flex flex-col sm:flex-row gap-6 items-center relative z-20">
+            <a href="https://discord.gg/HfxG9PK6qt" target="_blank" class="bg-celestial text-black px-8 py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-white transition duration-300 flex items-center gap-2 text-xs animate-pulse shadow-[0_0_30px_rgba(216,193,150,0.3)]">
                 Enter Celestial Domain
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 19L19 5M19 5v10M19 5H9"></path></svg>
             </a>
-            <a href="#videos" class="bg-card border border-cyan-900 hover:border-cyan-500 text-cyan-300 px-8 py-4 rounded-xl font-bold uppercase tracking-widest transition duration-300 text-xs">
+            <a href="#videos" class="bg-card border border-cyan-900 hover:border-cyan-500 text-cyan-300 px-8 py-4 rounded-xl font-bold uppercase tracking-widest transition duration-300 text-xs shadow-2xl">
                 Explore Archives
             </a>
+        </div>
+
+        <div class="mt-8 border border-indigo-500/30 bg-card/80 backdrop-blur-md rounded-xl p-5 max-w-3xl mx-auto text-[13px] text-slate-300 leading-relaxed shadow-2xl relative z-20">
+            <span class="text-celestial font-bold">✨ Looking to consult the Oracle?</span> The true dragon's voice resides inside our Discord. Transmit your orbital signals to <a href="https://discord.gg/HfxG9PK6qt" target="_blank" class="text-celestial underline font-bold hover:text-white transition">discord.gg/HfxG9PK6qt</a> to receive live updates, MMO game nights, and stardust announcements.
         </div>
     </section>
 
     <section id="videos" class="py-24 z-10 relative max-w-6xl mx-auto px-6">
+        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-cyan-900/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
         <div class="inline-flex items-center gap-2 border border-cyan-500/30 bg-cyan-950/20 rounded-full px-4 py-1.5 text-[10px] font-mono tracking-widest text-cyan-400 mb-6 uppercase">
             <span class="text-cyan-400">✦</span> Videos Constellation <span class="text-cyan-400">✦</span>
         </div>
@@ -98,7 +108,7 @@
         <h2 class="text-4xl font-bold mb-4">Latest Videos</h2>
         <p class="text-slate-400 mb-12 max-w-xl">Astral broadcasts, legendary MMO raids, and original audio creations from RyuTenHoshi's channel.</p>
         
-        <div class="bg-card border border-indigo-900/40 rounded-[2rem] p-6 shadow-2xl backdrop-blur-sm">
+        <div class="bg-card border border-indigo-900/40 rounded-[2rem] p-6 shadow-2xl backdrop-blur-md">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div class="w-full aspect-video rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-black">
                     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DVFa69OejMQ" title="🔰【Dungeon Fighter Online】New Addiction or One-Hit Wonder? | First Look 🧐" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -128,13 +138,15 @@
             <button onclick="switchStream('youtube')" id="btn-youtube" class="border border-transparent text-slate-400 hover:text-white px-8 py-3 rounded-xl font-bold transition">YouTube</button>
         </div>
 
-        <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)] border border-indigo-900/50">
+        <div class="aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-indigo-900/50">
             <iframe id="stream-frame" src="https://player.twitch.tv/?channel=ryutenhoshi&parent=ryutenhoshi.com" frameborder="0" allowfullscreen="true" height="100%" width="100%"></iframe>
         </div>
     </section>
 
     <section id="engine" class="py-32 z-10 relative max-w-6xl mx-auto px-6">
-        <div class="bg-card border border-indigo-900/40 rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur-sm">
+        <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <div class="bg-card border border-indigo-900/40 rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur-md">
             <div class="inline-flex items-center gap-2 border border-indigo-500/30 rounded-full px-4 py-1 text-[10px] font-mono tracking-widest text-indigo-300 mb-6 uppercase">
                 <span class="text-indigo-400">✦</span> Chronos Sync Constellation <span class="text-indigo-400">✦</span>
             </div>
@@ -153,33 +165,18 @@
                 </button>
             </div>
 
-            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-8">
-                
+            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-8 shadow-inner">
                 <div id="grid-physical" class="hidden">
                     <h3 class="text-xl font-bold text-white mb-1">Physical Hardware</h3>
                     <p class="text-slate-400 text-sm mb-6">The tactile gear that powers the celestial dragon's movements in the physical realm.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Keyboard</p><p class="text-celestial font-bold">Wooting 80HE</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Mouse</p><p class="text-celestial font-bold">OP1 8K v2</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Mouse Pad</p><p class="text-celestial font-bold">Miku SP-004 Glass</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Camera</p><p class="text-celestial font-bold">Sony a6000</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Microphone</p><p class="text-celestial font-bold">Shure SM7b</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Monitor</p><p class="text-celestial font-bold">4k ASUS ROG Strix 240hz/480hz</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl md:col-span-2 lg:col-span-1">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Headset</p><p class="text-celestial font-bold">Audeze Maxwell / Beyerdynamic</p>
-                        </div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Keyboard</p><p class="text-celestial font-bold">Wooting 80HE</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Mouse</p><p class="text-celestial font-bold">OP1 8K v2</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Mouse Pad</p><p class="text-celestial font-bold">Miku SP-004 Glass</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Camera</p><p class="text-celestial font-bold">Sony a6000</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Microphone</p><p class="text-celestial font-bold">Shure SM7b</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Monitor</p><p class="text-celestial font-bold">4k ASUS ROG Strix 240hz/480hz</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl md:col-span-2 lg:col-span-1"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Headset</p><p class="text-celestial font-bold">Audeze Maxwell / Beyerdynamic</p></div>
                     </div>
                 </div>
 
@@ -187,49 +184,76 @@
                     <h3 class="text-xl font-bold text-white mb-1">Star Stream Setup</h3>
                     <p class="text-slate-400 text-sm mb-6">My high-performance streaming architecture allowing for zero-latency broadcasting.</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Processing</p><p class="text-celestial font-bold">Intel i9 12900k</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Rendering</p><p class="text-celestial font-bold">RTX 3090</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Core</p><p class="text-celestial font-bold">1200w ROG Strix Platinum</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Memory</p><p class="text-celestial font-bold">32GB DDR5 4800Mhz</p>
-                        </div>
-                        <div class="border border-slate-800 bg-space p-6 rounded-xl">
-                            <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Circuit Board</p><p class="text-celestial font-bold">ASUS Z790</p>
-                        </div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Processing</p><p class="text-celestial font-bold">Intel i9 12900k</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Rendering</p><p class="text-celestial font-bold">RTX 3090</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Core</p><p class="text-celestial font-bold">1200w ROG Strix Platinum</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Memory</p><p class="text-celestial font-bold">32GB DDR5 4800Mhz</p></div>
+                        <div class="border border-slate-800 bg-space p-6 rounded-xl"><p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest mb-1">Circuit Board</p><p class="text-celestial font-bold">ASUS Z790</p></div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <section id="contact-form" class="py-24 z-10 relative max-w-4xl mx-auto px-6">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-900/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+
+        <div class="text-center mb-10">
+            <div class="inline-flex items-center gap-2 border border-purple-500/30 bg-purple-950/20 rounded-full px-4 py-1.5 text-[10px] font-mono tracking-widest text-purple-400 mb-6 uppercase">
+               <span class="text-purple-400">✦</span> Secured Realm Constellation <span class="text-purple-400">✦</span>
+           </div>
+           <p class="text-celestial text-xs font-mono tracking-widest uppercase mb-2">✨ Get in touch</p>
+           <h2 class="text-4xl font-bold mb-4 text-white">Send a Celestial Transmission</h2>
+           <p class="text-slate-400 max-w-2xl mx-auto">Whether you seek collaborative streaming, team recruitment, or just want to discuss the starry heavens, beam a message below or contact me directly at <a href="mailto:contact@ryutenhoshi.com" class="text-celestial underline hover:text-white transition">contact@ryutenhoshi.com</a>.</p>
+        </div>
+
+        <form class="bg-card border border-indigo-900/40 rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur-md space-y-6" action="mailto:contact@ryutenhoshi.com" method="post" enctype="text/plain">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Name</label>
+                    <input type="text" placeholder="e.g., Commander Stella" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Email</label>
+                    <input type="email" placeholder="e.g., pilot@milkyway.org" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
+                </div>
+            </div>
+            <div>
+                <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Subject</label>
+                <input type="text" placeholder="e.g., Collaborative streaming or Star sponsorship" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
+            </div>
+            <div>
+                <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Message</label>
+                <textarea rows="5" placeholder="Type your transmission..." class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-slate-100 hover:bg-white text-black font-bold py-4 rounded-xl transition flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                Send Transmission
+            </button>
+        </form>
+    </section>
+
     <footer id="contact" class="py-16 text-center border-t border-slate-900 relative z-10">
         <div class="flex justify-center flex-wrap gap-4 mb-8">
-            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
-            <a href="https://twitch.tv/ryutenhoshi" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="https://twitch.tv/ryutenhoshi" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.806-6.806v-14.149h-21.851zm19.164 11.821l-4.119 4.119h-5.731l-3.045 3.045v-3.045h-4.836v-13.612h17.731v9.493zm-9.313-6.269h2.687v5.373h-2.687v-5.373zm4.836 0h2.687v5.373h-2.687v-5.373z"/></svg>
             </a>
-            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M1.333 0h5.334v5.333H12V0h5.334v24H12v-5.333H6.667V24H1.333V0zm10.667 10.667v2.666h5.333v5.334H22.667v-16h-5.334v5.333h-5.333z"/></svg>
             </a>
-            <a href="https://discord.gg/HfxG9PK6qt" target="_blank" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="https://discord.gg/HfxG9PK6qt" target="_blank" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/></svg>
             </a>
-            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
-            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition">
+            <a href="#" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 hover:bg-slate-900 transition">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.938.822-1.928 2.053-1.442 3.82.52 1.884 3.036 2.378 5.02 1.624l1-.384 1 .384c1.984.754 4.5.26 5.02-1.624.486-1.767-.504-2.998-1.442-3.82.14.017.28.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.788.624-6.478 0-.69-.139-1.861-.902-2.203-.659-.299-1.664-.62-4.3 1.24-2.752 1.942-5.711 5.881-6.798 7.995z"/></svg>
             </a>
         </div>
@@ -244,18 +268,14 @@
         // --- UI Interactions ---
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
-            
-            // Header Fade
             const nav = document.getElementById('main-nav');
             if (scrollPos > 100) { nav.classList.remove('opacity-0', 'pointer-events-none'); nav.classList.add('opacity-100'); } 
             else { nav.classList.add('opacity-0', 'pointer-events-none'); nav.classList.remove('opacity-100'); }
 
-            // Scroll to Top Fade
             const scrollTopBtn = document.getElementById('scroll-top');
             if (scrollPos > 500) { scrollTopBtn.classList.remove('opacity-0'); }
             else { scrollTopBtn.classList.add('opacity-0'); }
 
-            // Progress Bar
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             document.getElementById("scroll-progress").style.width = ((winScroll / height) * 100) + "%";
@@ -328,18 +348,14 @@
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
-                
-                // Wrap around edges
                 if (this.x < 0) this.x = canvas.width;
                 if (this.x > canvas.width) this.x = 0;
                 if (this.y < 0) this.y = canvas.height;
                 if (this.y > canvas.height) this.y = 0;
                 
-                // Subtle twinkling
                 this.alpha += (Math.random() - 0.5) * 0.05;
                 if(this.alpha < 0.1) this.alpha = 0.1;
                 if(this.alpha > 0.8) this.alpha = 0.8;
-                
                 this.draw();
             }
         }
