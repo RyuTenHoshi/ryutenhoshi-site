@@ -40,6 +40,11 @@
 </head>
 <body class="relative min-h-screen">
 
+    <div id="loading-screen" class="fixed inset-0 z-[999] bg-space flex flex-col items-center justify-center transition-opacity duration-700 opacity-0 pointer-events-none" style="display: none;">
+        <div class="w-[60px] h-[60px] border-[4px] border-[#d8c196]/10 border-t-[#d8c196] rounded-full animate-spin mb-6 shadow-[0_0_30px_rgba(216,193,150,0.5)]"></div>
+        <p class="text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase animate-pulse">Transmitting Realms...</p>
+    </div>
+
     <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-20 overflow-hidden">
         <div class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-purple-900/15 rounded-[100%] blur-[150px]"></div>
         
@@ -71,7 +76,7 @@
     <section class="relative min-h-screen flex flex-col justify-center items-center px-4 text-center z-10 pt-20">
         
         <div class="animate-bounce-short mb-6 z-20">
-            <a href="oracle.html" class="block cursor-pointer group">
+            <a href="oracle.html" onclick="transitionToPage(event, 'oracle.html')" class="block cursor-pointer group">
                 <img src="Icons.png" alt="RyuTenHoshi Logo" class="w-72 h-72 md:w-80 md:h-80 mx-auto transition-transform duration-500 ease-out group-hover:scale-110">
             </a>
         </div>
@@ -282,6 +287,14 @@
     </button>
 
     <script>
+    function transitionToPage(e, url) {
+        e.preventDefault();
+        const loader = document.getElementById('loading-screen');
+        loader.style.display = 'flex';
+        void loader.offsetWidth; // Force reflow
+        loader.classList.remove('opacity-0', 'pointer-events-none');
+        setTimeout(() => { window.location.href = url; }, 700);
+    }
         // --- Force Scroll to Top on Page Load/Refresh ---
         if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
         window.onload = function() { window.scrollTo(0, 0); }
