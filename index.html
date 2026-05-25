@@ -286,34 +286,41 @@
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
     </button>
 
-    <script>
-        // --- Force Scroll to Top on Page Load/Refresh ---
-        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
-        
-        // --- PAGE TRANSITION LOGIC ---
-        window.addEventListener('load', () => {
-            window.scrollTo(0, 0); 
-            const loader = document.getElementById('loading-screen');
-            setTimeout(() => {
-                loader.classList.add('opacity-0');
-                setTimeout(() => { 
-                    loader.style.display = 'none'; 
-                    loader.classList.add('pointer-events-none');
-                }, 500); // Wait for transition to finish
-            }, 100); 
-        });
+    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-[#050511] flex flex-col items-center justify-center transition-opacity duration-500 opacity-100">
+    <div class="w-[60px] h-[60px] border-[4px] border-[#d8c196]/10 border-t-[#d8c196] rounded-full animate-spin mb-6 shadow-[0_0_30px_rgba(216,193,150,0.5)]"></div>
+    <p class="text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase animate-pulse">Transmitting Realms...</p>
+</div>
 
-        function transitionToPage(e, url) {
-            e.preventDefault();
-            const loader = document.getElementById('loading-screen');
-            loader.style.display = 'flex';
-            loader.classList.remove('pointer-events-none');
-            void loader.offsetWidth; // Force reflow
-            loader.classList.remove('opacity-0');
-            
-            // Navigate exactly as the screen goes fully black
-            setTimeout(() => { window.location.href = url; }, 450);
+<script>
+    // --- PAGE TRANSITION LOGIC ---
+    function hideLoader() {
+        const loader = document.getElementById('loading-screen');
+        if (loader) {
+            loader.style.opacity = '0';
+            setTimeout(() => { 
+                loader.style.display = 'none'; 
+                loader.classList.add('pointer-events-none');
+            }, 500);
         }
+    }
+
+    // 1. Standard Load Trigger
+    window.addEventListener('load', () => {
+        window.scrollTo(0, 0); 
+        hideLoader();
+    });
+
+    // 2. FAIL-SAFE: If page hangs, force hide after 2 seconds
+    setTimeout(hideLoader, 2000);
+
+    function transitionToPage(e, url) {
+        e.preventDefault();
+        const loader = document.getElementById('loading-screen');
+        loader.style.display = 'flex';
+        loader.style.opacity = '1';
+        loader.classList.remove('pointer-events-none');
+        setTimeout(() => { window.location.href = url; }, 450);
+    }
 
         // --- UI Interactions ---
         window.addEventListener('scroll', () => {
