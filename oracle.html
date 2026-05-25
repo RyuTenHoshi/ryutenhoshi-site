@@ -126,26 +126,20 @@
 
     <script>
         // --- PAGE TRANSITION LOGIC ---
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loading-screen');
-            setTimeout(() => {
-                loader.classList.add('opacity-0');
-                setTimeout(() => { 
-                    loader.style.display = 'none'; 
-                    loader.classList.add('pointer-events-none');
-                }, 500); 
-            }, 100); 
-        });
+// Remove the window.addEventListener('load') entirely. 
+// It is causing the infinite loop on back-navigation.
 
-        function transitionToPage(e, url) {
-            e.preventDefault();
-            const loader = document.getElementById('loading-screen');
-            loader.style.display = 'flex';
-            loader.classList.remove('pointer-events-none');
-            void loader.offsetWidth;
-            loader.classList.remove('opacity-0');
-            setTimeout(() => { window.location.href = url; }, 450);
-        }
+function transitionToPage(e, url) {
+    e.preventDefault();
+    const loader = document.getElementById('loading-screen');
+    // Force display and show immediately
+    loader.style.display = 'flex';
+    loader.style.opacity = '1';
+    loader.style.pointerEvents = 'all';
+    
+    // Navigate after 500ms
+    setTimeout(() => { window.location.href = url; }, 500);
+}
 
         // --- CELESTIAL DRAGON AI ENGINE ---
         const GEMINI_API_KEY = "AIzaSyDdY3gefvbRttyc-ELzo1BFwf5GMhDan2s"; 
