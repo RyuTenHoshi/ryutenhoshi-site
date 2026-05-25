@@ -40,7 +40,13 @@
 </head>
 <body class="relative min-h-screen">
 
-    <canvas id="star-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-80"></canvas>
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-20 overflow-hidden">
+        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-indigo-900/25 rounded-full blur-[130px]"></div>
+        <div class="absolute top-[40%] left-[-15%] w-[700px] h-[700px] bg-purple-900/15 rounded-full blur-[140px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-cyan-900/10 rounded-full blur-[140px]"></div>
+    </div>
+
+    <canvas id="star-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-80"></canvas>
 
     <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-celestial to-cyan-500 z-[9999] transition-[width] duration-150 ease-out shadow-[0_0_10px_rgba(34,211,238,0.5)]" style="width: 0%;"></div>
 
@@ -61,8 +67,7 @@
     </header>
 
     <section class="relative min-h-screen flex flex-col justify-center items-center px-4 text-center z-10 pt-20">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-
+        
         <div class="animate-bounce-short mb-6 z-20">
             <a href="oracle.html" class="block cursor-pointer group">
                 <img src="Icons.png" alt="RyuTenHoshi Logo" class="w-72 h-72 md:w-80 md:h-80 mx-auto transition-transform duration-500 ease-out group-hover:scale-110">
@@ -99,8 +104,6 @@
     </section>
 
     <section id="videos" class="py-24 z-10 relative max-w-6xl mx-auto px-6">
-        <div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-cyan-900/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-
         <div class="inline-flex items-center gap-2 border border-cyan-500/30 bg-cyan-950/20 rounded-full px-4 py-1.5 text-[10px] font-mono tracking-widest text-cyan-400 mb-6 uppercase">
             <span class="text-cyan-400">✦</span> Videos Constellation <span class="text-cyan-400">✦</span>
         </div>
@@ -144,8 +147,6 @@
     </section>
 
     <section id="engine" class="py-32 z-10 relative max-w-6xl mx-auto px-6">
-        <div class="absolute top-1/2 left-0 w-[500px] h-[500px] bg-indigo-900/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-
         <div class="bg-card border border-indigo-900/40 rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur-md">
             <div class="inline-flex items-center gap-2 border border-indigo-500/30 rounded-full px-4 py-1 text-[10px] font-mono tracking-widest text-indigo-300 mb-6 uppercase">
                 <span class="text-indigo-400">✦</span> Chronos Sync Constellation <span class="text-indigo-400">✦</span>
@@ -160,7 +161,7 @@
                     Star Stream Setup
                 </button>
                 <button onclick="switchHardware('physical')" id="btn-hw-physical" class="border border-slate-700 hover:border-slate-500 text-slate-400 hover:text-white px-6 py-2.5 rounded-xl text-sm font-bold transition flex items-center gap-2">
-                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     Physical Hardware
                 </button>
             </div>
@@ -196,8 +197,6 @@
     </section>
 
     <section id="contact-form" class="py-24 z-10 relative max-w-4xl mx-auto px-6">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-purple-900/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-
         <div class="text-center mb-10">
             <div class="inline-flex items-center gap-2 border border-purple-500/30 bg-purple-950/20 rounded-full px-4 py-1.5 text-[10px] font-mono tracking-widest text-purple-400 mb-6 uppercase">
                <span class="text-purple-400">✦</span> Secured Realm Constellation <span class="text-purple-400">✦</span>
@@ -207,24 +206,24 @@
            <p class="text-slate-400 max-w-2xl mx-auto">Whether you seek collaborative streaming, team recruitment, or just want to discuss the starry heavens, beam a message below or contact me directly at <a href="mailto:contact@ryutenhoshi.com" class="text-celestial underline hover:text-white transition">contact@ryutenhoshi.com</a>.</p>
         </div>
 
-        <form class="bg-card border border-indigo-900/40 rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur-md space-y-6" action="mailto:contact@ryutenhoshi.com" method="post" enctype="text/plain">
+        <form class="bg-card border border-indigo-900/40 rounded-[2rem] p-8 md:p-12 shadow-2xl backdrop-blur-md space-y-6" action="https://formspree.io/f/mnjrblwz" method="POST">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Name</label>
-                    <input type="text" placeholder="e.g., Commander Stella" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
+                    <input type="text" name="name" required placeholder="e.g., Commander Stella" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
                 </div>
                 <div>
                     <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Email</label>
-                    <input type="email" placeholder="e.g., pilot@milkyway.org" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
+                    <input type="email" name="email" required placeholder="e.g., pilot@milkyway.org" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
                 </div>
             </div>
             <div>
                 <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Subject</label>
-                <input type="text" placeholder="e.g., Collaborative streaming or Star sponsorship" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
+                <input type="text" name="subject" required placeholder="e.g., Collaborative streaming or Star sponsorship" class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner">
             </div>
             <div>
                 <label class="block text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-2">Message</label>
-                <textarea rows="5" placeholder="Type your transmission..." class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner resize-none"></textarea>
+                <textarea name="message" rows="5" required placeholder="Type your transmission..." class="w-full bg-space border border-indigo-900/50 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-500 transition shadow-inner resize-none"></textarea>
             </div>
             <button type="submit" class="w-full bg-slate-100 hover:bg-white text-black font-bold py-4 rounded-xl transition flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
@@ -265,6 +264,10 @@
     </button>
 
     <script>
+        // --- Force Scroll to Top on Page Load/Refresh ---
+        if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
+        window.onload = function() { window.scrollTo(0, 0); }
+
         // --- UI Interactions ---
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
