@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #020617; }
+::-webkit-scrollbar-thumb { 
+    background: #1e1b4b; 
+    border-radius: 9999px; 
+    border: 2px solid #020617; 
+}
+::-webkit-scrollbar-thumb:hover { background: #f8d69f; border-color: #030712; }
+
+html { scrollbar-width: thin; scrollbar-color: #f8d69f #020617; scroll-behavior: smooth; }
+
+/* Custom Keyframe Animations */
+@keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce-short {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+.animate-spin-slow { animation: spin-slow 22s linear infinite; }
+.animate-bounce-short { animation: bounce-short 3s ease-in-out infinite; }
+
+/* Utility Classes */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+body { transition: background-color 0.5s ease, color 0.5s ease; }
