@@ -49,10 +49,24 @@
             ← RYU<span class="text-celestial">TEN</span>HOSHI
         </a>
         
-        <div class="flex items-center gap-1 bg-space border border-indigo-900/40 rounded-lg p-0.5 text-[9px] font-mono">
-            <button onclick="setCurrency('usd')" id="curr-usd" class="px-2 py-0.5 rounded text-white bg-purple-900/50 transition">USD</button>
-            <button onclick="setCurrency('gbp')" id="curr-gbp" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition">GBP</button>
-            <button onclick="setCurrency('yen')" id="curr-yen" class="px-2 py-0.5 rounded text-slate-400 hover:text-white transition">YEN</button>
+        <div class="flex items-center gap-2">
+            <span class="text-[9px] font-mono text-slate-500 uppercase tracking-widest font-bold">Currencies:</span>
+            <div class="relative inline-block text-[10px] font-mono">
+                <select id="currency-dropdown" onchange="setCurrency(this.value)" class="bg-space border border-indigo-900/40 rounded-lg pl-2 pr-7 py-1 text-slate-300 focus:outline-none focus:border-purple-500/60 transition appearance-none cursor-pointer">
+                    <option value="usd">USD ($)</option>
+                    <option value="gbp">GBP (£)</option>
+                    <option value="eur">EUR (€)</option>
+                    <option value="jpy">JPY (¥)</option>
+                    <option value="cad">CAD (C$)</option>
+                    <option value="aud">AUD (A$)</option>
+                    <option value="chf">CHF (Fr.)</option>
+                    <option value="cny">CNY (¥)</option>
+                    <option value="inr">INR (₹)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-slate-500">
+                    <svg class="fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -248,9 +262,9 @@
 
     </main>
 
-    <div id="detail-modal" onclick="closeModal()" class="fixed inset-0 z-50 bg-space/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div onclick="event.stopPropagation()" class="bg-slate-950/90 border border-indigo-500/30 max-w-lg w-full rounded-2xl p-6 relative shadow-[0_0_50px_rgba(168,85,247,0.15)] transform scale-95 transition-transform duration-300 id-modal-box">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-500 hover:text-white transition font-mono text-sm">&times; CLOSE</button>
+    <div id="detail-modal" onclick="closeModal()" class="fixed inset-0 z-50 bg-space/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-150 ease-out">
+        <div onclick="event.stopPropagation()" class="bg-slate-950/90 border border-indigo-500/30 max-w-lg w-full rounded-2xl p-6 relative shadow-[0_0_50px_rgba(168,85,247,0.15)] transform scale-95 transition-transform duration-150 ease-out id-modal-box">
+            <button onclick="closeModal(); event.stopPropagation();" class="absolute top-4 right-4 text-slate-500 hover:text-white transition-colors duration-150 font-sans text-2xl focus:outline-none leading-none">&times;</button>
             
             <div class="flex flex-col gap-4 mt-2">
                 <div class="w-full aspect-video bg-space border border-indigo-950 rounded-xl flex items-center justify-center font-mono text-xs text-slate-600 uppercase tracking-widest">
@@ -273,32 +287,25 @@
     <script>
         // --- Multi-Currency Global Engine ---
         let currentCurrency = 'usd';
+        
+        const currencySymbols = {
+            usd: "$0.00",
+            gbp: "£0.00",
+            eur: "€0.00",
+            jpy: "¥0",
+            cad: "C$0.00",
+            aud: "A$0.00",
+            chf: "Fr.0.00",
+            cny: "¥0",
+            inr: "₹0.00"
+        };
+
         function setCurrency(type) {
             currentCurrency = type;
             const labels = document.querySelectorAll('.price-label');
             const modalPrice = document.getElementById('modal-price');
-            
-            // Get references to buttons
-            const btnUsd = document.getElementById('curr-usd');
-            const btnGbp = document.getElementById('curr-gbp');
-            const btnYen = document.getElementById('curr-yen');
 
-            // Reset classes across selector fields
-            [btnUsd, btnGbp, btnYen].forEach(btn => {
-                btn.className = "px-2 py-0.5 rounded text-slate-400 hover:text-white transition";
-            });
-
-            let formattedText = "$0.00";
-            if (type === 'usd') {
-                btnUsd.className = "px-2 py-0.5 rounded text-white bg-purple-900/50 transition";
-                formattedText = "$0.00";
-            } else if (type === 'gbp') {
-                btnGbp.className = "px-2 py-0.5 rounded text-white bg-purple-900/50 transition";
-                formattedText = "£0.00";
-            } else if (type === 'yen') {
-                btnYen.className = "px-2 py-0.5 rounded text-white bg-purple-900/50 transition";
-                formattedText = "¥0"; // Yen traditionally bypasses decimals
-            }
+            const formattedText = currencySymbols[type] || "$0.00";
 
             // Sync global layout prices
             labels.forEach(el => el.textContent = formattedText);
@@ -324,7 +331,7 @@
             });
         }
 
-        // --- Same-Screen Modal Display Engine [cite: 250, 253] ---
+        // --- Same-Screen Modal Display Engine ---
         function openModal(title, tag, description) {
             const modal = document.getElementById('detail-modal');
             const modalBox = modal.querySelector('.id-modal-box');
@@ -333,10 +340,8 @@
             document.getElementById('modal-tag').textContent = tag;
             document.getElementById('modal-desc').textContent = description;
             
-            // Force modal price layout to look uniform with global currency switcher metrics
-            if (currentCurrency === 'usd') document.getElementById('modal-price').textContent = "$0.00";
-            else if (currentCurrency === 'gbp') document.getElementById('modal-price').textContent = "£0.00";
-            else if (currentCurrency === 'yen') document.getElementById('modal-price').textContent = "¥0";
+            // Force modal price display text layout alignment
+            document.getElementById('modal-price').textContent = currencySymbols[currentCurrency] || "$0.00";
 
             modal.classList.remove('opacity-0', 'pointer-events-none');
             modalBox.classList.remove('scale-95');
@@ -352,7 +357,7 @@
             modalBox.classList.add('scale-95');
         }
 
-        // Run baseline load metrics setup
+        // Run baseline setup metrics load
         setCurrency('usd');
 
         // --- Animated Canvas Space Background Effect ---
