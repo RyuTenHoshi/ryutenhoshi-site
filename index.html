@@ -35,16 +35,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
         body { color: #e2e8f0; font-family: 'Inter', sans-serif; height: 100%; overflow: hidden; }
-        
-        @media (min-width: 768px) {
-            .fading-sidebar-border {
-                border-right: 1px solid transparent;
-                border-image: linear-gradient(to bottom, rgba(99, 102, 241, 0.3) 0%, rgba(99, 102, 241, 0.1) 40%, rgba(0, 0, 0, 0) 70%) 1;
-            }
-        }
     </style>
 </head>
-<body class="relative min-h-screen flex flex-col md:flex-row overflow-hidden">
+<body class="relative min-h-screen flex flex-col overflow-hidden justify-center items-center p-4 md:p-6 box-border">
 
     <div id="loading-screen" class="fixed inset-0 z-[9999] bg-[#050511] flex-col items-center justify-center transition-opacity duration-500 hidden opacity-0">
         <div class="w-[60px] h-[60px] border-[4px] border-[#d8c196]/10 border-t-[#d8c196] rounded-full animate-spin mb-6 shadow-[0_0_30px_rgba(216,193,150,0.5)]"></div>
@@ -58,85 +51,64 @@
     </div>
     <canvas id="star-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-80"></canvas>
 
-    <header id="main-nav" class="fixed top-0 left-0 w-full md:w-64 h-auto md:h-screen z-50 bg-space/90 md:bg-gradient-to-b md:from-space md:via-space/70 md:to-transparent border-b md:border-b-0 fading-sidebar-border backdrop-blur-md md:backdrop-blur-none p-4 md:p-6 flex md:flex-col justify-between items-center md:items-start pointer-events-none">
-        <div class="w-full flex md:flex-col justify-between md:justify-start items-center md:items-start gap-6 pointer-events-auto">
-            <div class="flex items-center cursor-pointer">
-                <span class="font-bold tracking-widest uppercase text-white text-sm md:text-base">RYU<span class="text-celestial">TEN</span>HOSHI</span>
+    <main class="w-full max-w-4xl flex flex-col justify-between h-full max-h-[92vh] gap-3 md:gap-4 z-10">
+        
+        <header class="text-center shrink-0">
+            <span class="font-bold tracking-widest uppercase text-white text-base md:text-xl">RYU<span class="text-celestial">TEN</span>HOSHI</span>
+        </header>
+
+        <section id="connection-matrix" class="text-center w-full flex flex-col items-center justify-center shrink-0">
+            <h3 class="text-white font-bold tracking-widest uppercase mb-2 text-xs">Establish Connection</h3>
+            
+            <div class="flex flex-wrap justify-center gap-2 mb-2 max-w-xl mx-auto w-full">
+                <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-950/20 transition duration-300 shadow-[0_0_15px_rgba(168,85,247,0.05)]">
+                    TWITCH
+                </a>
+                <a href="https://youtube.com/@RyuTenHoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-red-400 hover:border-red-500 hover:bg-red-950/20 transition duration-300 shadow-[0_0_15px_rgba(239,68,68,0.05)]">
+                    YOUTUBE
+                </a>
+                <a href="https://x.com/RyuTenHoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-950/20 transition duration-300 shadow-[0_0_15px_rgba(59,130,246,0.05)]">
+                    TWITTER
+                </a>
+                <a href="#" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-green-400 hover:border-green-500 hover:bg-green-950/20 transition duration-300 shadow-[0_0_15px_rgba(34,197,94,0.05)]">
+                    STORE
+                </a>
+                <a href="#" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-950/20 transition duration-300 shadow-[0_0_15px_rgba(234,179,8,0.05)]">
+                    SUPPORT
+                </a>
+            </div>
+
+            <div class="mb-3">
+                <a href="lore.html" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-celestial/30 text-celestial hover:text-white hover:border-celestial hover:bg-celestial/10 transition duration-300 tracking-wider">
+                    ✦ LORE ARCHIVE ✦
+                </a>
             </div>
             
-            <nav class="hidden md:flex flex-col space-y-3 text-[11px] font-bold tracking-widest uppercase text-slate-400 w-full">
-                <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="hover:text-purple-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Twitch</a>
-                <a href="https://youtube.com/@RyuTenHoshi" target="_blank" class="hover:text-red-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">YouTube</a>
-                <a href="https://x.com/RyuTenHoshi" target="_blank" class="hover:text-blue-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Twitter</a>
-                <a href="#" target="_blank" class="hover:text-green-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Store</a>
-                <a href="#" target="_blank" class="hover:text-yellow-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Support</a>
-                <hr class="border-indigo-900/30 my-2">
-                <a href="lore.html" class="text-celestial hover:text-white hover:pl-2 transition-all duration-200 flex items-center gap-2">✦ Lore Archive ✦</a>
-            </nav>
-        </div>
+            <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[11px] font-mono">
+                <span class="uppercase tracking-widest text-slate-500">Contact Me:</span>
+                <a href="mailto:contact@ryutenhoshi.com" class="text-celestial hover:text-white transition duration-200">contact@ryutenhoshi.com</a>
+            </div>
+        </section>
 
-        <div class="md:hidden flex gap-4 text-[10px] font-mono pointer-events-auto">
-            <a href="lore.html" class="text-celestial font-bold">LORE</a>
-            <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="text-purple-400">TWITCH</a>
-        </div>
+        <section id="live-transmission" class="w-full bg-purple-950/5 border border-indigo-900/20 rounded-xl p-3 md:p-4 flex flex-col grow min-h-0">
+            <div class="flex items-center gap-2 mb-2 shrink-0 justify-center md:justify-start">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-ping"></span>
+                <h3 class="font-mono text-[9px] tracking-[0.2em] text-purple-400 uppercase font-bold">Live Transmission Uplink</h3>
+            </div>
+            <div class="w-full flex-1 aspect-video md:aspect-auto rounded-lg overflow-hidden border border-purple-950/50 shadow-[0_0_30px_rgba(168,85,247,0.03)] min-h-0 bg-black">
+                <iframe 
+                    src="https://player.twitch.tv/?channel=ryutenhoshi&parent=ryutenhoshi.com&parent=localhost" 
+                    height="100%" 
+                    width="100%" 
+                    allowfullscreen="true"
+                    preload="auto">
+                </iframe>
+            </div>
+        </section>
 
-        <div class="hidden md:block w-full pt-4 border-t border-indigo-900/20 opacity-40 pointer-events-auto">
-            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Archival System v3.0</p>
-        </div>
-    </header>
-
-    <main class="flex-1 md:pl-64 pt-16 md:pt-0 flex flex-col justify-center items-center h-[calc(100vh-4rem)] md:h-screen p-4 md:p-8 box-border overflow-hidden z-10">
-        
-        <div class="w-full max-w-4xl flex flex-col justify-between h-full max-h-[85vh] md:max-h-[90vh] gap-4">
-            
-            <section id="connection-matrix" class="text-center w-full flex flex-col items-center justify-center shrink-0">
-                <h3 class="text-white font-bold tracking-widest uppercase mb-3 text-xs md:text-sm">Establish Connection</h3>
-                
-                <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-3 max-w-xl mx-auto w-full">
-                    <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-950/20 transition duration-300 shadow-[0_0_15px_rgba(168,85,247,0.05)]">
-                        TWITCH
-                    </a>
-                    <a href="https://youtube.com/@RyuTenHoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-red-400 hover:border-red-500 hover:bg-red-950/20 transition duration-300 shadow-[0_0_15px_rgba(239,68,68,0.05)]">
-                        YOUTUBE
-                    </a>
-                    <a href="https://x.com/RyuTenHoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-950/20 transition duration-300 shadow-[0_0_15px_rgba(59,130,246,0.05)]">
-                        TWITTER
-                    </a>
-                    <a href="#" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-green-400 hover:border-green-500 hover:bg-green-950/20 transition duration-300 shadow-[0_0_15px_rgba(34,197,94,0.05)]">
-                        STORE
-                    </a>
-                    <a href="#" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-950/20 transition duration-300 shadow-[0_0_15px_rgba(234,179,8,0.05)]">
-                        SUPPORT
-                    </a>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[11px] font-mono">
-                    <span class="uppercase tracking-widest text-slate-500">Contact Me:</span>
-                    <a href="mailto:contact@ryutenhoshi.com" class="text-celestial hover:text-white transition duration-200">contact@ryutenhoshi.com</a>
-                </div>
-            </section>
-
-            <section id="live-transmission" class="w-full bg-purple-950/5 border border-indigo-900/20 rounded-xl p-3 md:p-4 flex flex-col grow min-h-0">
-                <div class="flex items-center gap-2 mb-2 shrink-0">
-                    <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-ping"></span>
-                    <h3 class="font-mono text-[9px] tracking-[0.2em] text-purple-400 uppercase font-bold">Live Transmission Uplink</h3>
-                </div>
-                <div class="w-full flex-1 aspect-video md:aspect-auto rounded-lg overflow-hidden border border-purple-950/50 shadow-[0_0_30px_rgba(168,85,247,0.03)] min-h-0 bg-black">
-                    <iframe 
-                        src="https://player.twitch.tv/?channel=ryutenhoshi&parent=ryutenhoshi.com&parent=localhost" 
-                        height="100%" 
-                        width="100%" 
-                        allowfullscreen="true"
-                        preload="auto">
-                    </iframe>
-                </div>
-            </section>
-
-            <footer class="text-center shrink-0 pt-2 pb-1 border-t border-slate-900/40">
-                <p class="text-slate-600 text-[10px] font-mono uppercase tracking-widest">RyuTenHoshi | The Star-Soul Archive</p>
-            </footer>
-
-        </div>
+        <footer class="text-center shrink-0 pt-2 pb-1 border-t border-slate-900/40">
+            <p class="text-slate-600 text-[10px] font-mono uppercase tracking-widest">RyuTenHoshi | The Star-Soul Archive</p>
+        </footer>
 
     </main>
 
@@ -148,7 +120,7 @@
         canvas.height = window.innerHeight;
         
         let stars = [];
-        const numStars = 150; // Slipped down slightly for tighter UI layout processing
+        const numStars = 150;
 
         window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 
