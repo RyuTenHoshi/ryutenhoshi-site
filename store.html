@@ -34,6 +34,7 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #1e1b4b; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #d8c196; }
+        .text-gradient { background: linear-gradient(to right, #ffffff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col overflow-hidden justify-center items-center p-3 md:p-6 box-border">
@@ -44,7 +45,7 @@
     </div>
     <canvas id="star-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-80"></canvas>
 
-    <header class="w-full max-w-5xl flex justify-between items-center shrink-0 mb-3 border-b border-slate-900/60 pb-2 z-10">
+    <header class="w-full max-w-5xl flex justify-between items-center shrink-0 mb-3 border-b border-slate-900/60 pb-2 z-50 relative">
         <a href="index.html" class="font-bold tracking-widest uppercase text-white text-xs md:text-sm hover:text-celestial transition duration-200">
             ← RYU<span class="text-celestial">TEN</span>HOSHI
         </a>
@@ -70,8 +71,12 @@
         </div>
     </header>
 
-    <main class="w-full max-w-5xl flex-1 flex flex-col justify-between h-full max-h-[88vh] z-10 overflow-hidden gap-3">
+    <main class="w-full max-w-5xl flex-1 flex flex-col justify-between h-full max-h-[88vh] z-10 overflow-hidden gap-3 relative">
         
+        <div class="absolute inset-0 z-40 backdrop-blur-2xl bg-space/80 flex flex-col items-center justify-center text-center p-4 select-none pointer-events-auto rounded-xl border border-indigo-950/40">
+            <h2 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-[0.25em] uppercase text-gradient animate-pulse pl-[0.25em]">COMING SOON</h2>
+            <p class="text-[10px] md:text-xs font-mono tracking-[0.3em] text-celestial mt-4 uppercase opacity-80 pl-[0.3em]">Supply Uplink Under Construction</p>
+        </div>
         <section class="shrink-0 bg-gradient-to-r from-purple-950/20 to-cyan-950/10 border border-indigo-500/20 rounded-xl p-3">
             <div class="flex items-center gap-2 mb-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -307,7 +312,6 @@
 
             const formattedText = currencySymbols[type] || "$0.00";
 
-            // Sync global layout prices
             labels.forEach(el => el.textContent = formattedText);
             if(modalPrice) modalPrice.textContent = formattedText;
         }
@@ -340,7 +344,6 @@
             document.getElementById('modal-tag').textContent = tag;
             document.getElementById('modal-desc').textContent = description;
             
-            // Force modal price display text layout alignment
             document.getElementById('modal-price').textContent = currencySymbols[currentCurrency] || "$0.00";
 
             modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -357,7 +360,6 @@
             modalBox.classList.add('scale-95');
         }
 
-        // Run baseline setup metrics load
         setCurrency('usd');
 
         // --- Animated Canvas Space Background Effect ---
