@@ -60,6 +60,157 @@
         <section id="connection-matrix" class="text-center w-full flex flex-col items-center justify-center shrink-0">
             <h3 class="text-white font-bold tracking-widest uppercase mb-2 text-xs">Establish Connection</h3>
             
+            <div class="flex flex-wrap justify-center gap-2 mb-3 max-w-xl mx-auto w-full">
+                <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-950/20 transition duration-300 shadow-[0_0_15px_rgba(168,85,247,0.05)]">
+                    TWITCH
+                </a>
+                <a href="https://youtube.com/@RyuTenHoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-red-400 hover:border-red-500 hover:bg-red-950/20 transition duration-300 shadow-[0_0_15px_rgba(239,68,68,0.05)]">
+                    YOUTUBE
+                </a>
+                <a href="https://x.com/RyuTenHoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-blue-400 hover:border-blue-500 hover:bg-blue-950/20 transition duration-300 shadow-[0_0_15px_rgba(59,130,246,0.05)]">
+                    TWITTER
+                </a>
+                <a href="#" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-yellow-400 hover:border-yellow-500 hover:bg-yellow-950/20 transition duration-300 shadow-[0_0_15px_rgba(234,179,8,0.05)]">
+                    SUPPORT
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-3">
+                <a href="lore.html" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-celestial/30 text-celestial hover:text-white hover:border-celestial hover:bg-celestial/10 transition duration-300 tracking-wider">
+                    ✦ LORE ARCHIVE ✦
+                </a>
+                <a href="store.html" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-cyan-400/30 text-cyan-400 hover:text-white hover:border-cyan-400 hover:bg-cyan-400/10 transition duration-300 tracking-wider">
+                    ✦ MERCH STORE ✦
+                </a>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-[11px] font-mono">
+                <span class="uppercase tracking-widest text-slate-500">Contact Me:</span>
+                <a href="mailto:contact@ryutenhoshi.com" class="text-celestial hover:text-white transition duration-200">contact@ryutenhoshi.com</a>
+            </div>
+        </section>
+
+        <section id="live-transmission" class="w-full bg-purple-950/5 border border-indigo-900/20 rounded-xl p-3 md:p-4 flex flex-col grow min-h-0">
+            <div class="flex items-center gap-2 mb-2 shrink-0 justify-center md:justify-start">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-ping"></span>
+                <h3 class="font-mono text-[9px] tracking-[0.2em] text-purple-400 uppercase font-bold">Live Transmission Uplink</h3>
+            </div>
+            <div class="w-full flex-1 aspect-video md:aspect-auto rounded-lg overflow-hidden border border-purple-950/50 shadow-[0_0_30px_rgba(168,85,247,0.03)] min-h-0 bg-black">
+                <iframe 
+                    src="https://player.twitch.tv/?channel=ryutenhoshi&parent=ryutenhoshi.com&parent=localhost" 
+                    height="100%" 
+                    width="100%" 
+                    allowfullscreen="true"
+                    loading="lazy"
+                    preload="auto">
+                </iframe>
+            </div>
+        </section>
+
+        <footer class="text-center shrink-0 pt-2 pb-1 border-t border-slate-900/40">
+            <p class="text-slate-600 text-[10px] font-mono uppercase tracking-widest">RyuTenHoshi | The Star-Soul Archive</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const targetLinks = ['lore.html', 'store.html'];
+            
+            targetLinks.forEach(page => {
+                const prefetchLink = document.createElement('link');
+                prefetchLink.rel = 'prefetch';
+                prefetchLink.href = page;
+                document.head.appendChild(prefetchLink);
+
+                const btn = document.querySelector(`a[href="${page}"]`);
+                if (btn) {
+                    const triggerFetch = () => {
+                        if (!document.querySelector(`link[href="${page}"][rel="prefetch"]`)) {
+                            document.head.appendChild(prefetchLink);
+                        }
+                    };
+                    btn.addEventListener('mouseenter', triggerFetch, { passive: true });
+                    btn.addEventListener('touchstart', triggerFetch, { passive: true });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // --- Animated Canvas Space Background Effect ---
+        const canvas = document.getElementById('star-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let stars = [];
+        const numStars = 100;
+
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+
+        class Star {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 1.5;
+                this.vx = (Math.random() - 0.5) * 0.4; 
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.alpha = Math.random();
+            }
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
+                
+                this.alpha += (Math.random() - 0.5) * 0.05;
+                if(this.alpha < 0.1) this.alpha = 0.1;
+                if(this.alpha > 0.8) this.alpha = 0.8;
+                this.draw();
+            }
+        }
+        function initStars() { stars = []; for(let i=0; i<numStars; i++) stars.push(new Star()); }
+        function animateStars() { ctx.clearRect(0, 0, canvas.width, canvas.height); stars.forEach(star => star.update()); requestAnimationFrame(animateStars); }
+        
+        initStars();
+        animateStars();
+    </script>
+</body>
+</html>        body { color: #e2e8f0; font-family: 'Inter', sans-serif; height: 100%; overflow: hidden; }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col overflow-hidden justify-center items-center p-4 md:p-6 box-border">
+
+    <div id="loading-screen" class="fixed inset-0 z-[9999] bg-[#050511] flex-col items-center justify-center transition-opacity duration-500 hidden opacity-0">
+        <div class="w-[60px] h-[60px] border-[4px] border-[#d8c196]/10 border-t-[#d8c196] rounded-full animate-spin mb-6 shadow-[0_0_30px_rgba(216,193,150,0.5)]"></div>
+        <p class="text-slate-400 font-mono text-[10px] tracking-[0.3em] uppercase animate-pulse">Accessing Archives...</p>
+    </div>
+
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-20 overflow-hidden">
+        <div class="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[600px] bg-purple-900/15 rounded-[100%] blur-[150px]"></div>
+        <div class="absolute top-[5%] left-1/2 -translate-x-1/2 w-[700px] h-[600px] bg-[#d8c196]/15 rounded-full blur-[130px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[700px] h-[700px] bg-cyan-900/10 rounded-full blur-[140px]"></div>
+    </div>
+    <canvas id="star-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-80"></canvas>
+
+    <main class="w-full max-w-4xl flex flex-col justify-between h-full max-h-[92vh] gap-3 md:gap-4 z-10">
+        
+        <header class="text-center shrink-0">
+            <span class="font-bold tracking-widest uppercase text-white text-base md:text-xl">RYU<span class="text-celestial">TEN</span>HOSHI</span>
+        </header>
+
+        <section id="connection-matrix" class="text-center w-full flex flex-col items-center justify-center shrink-0">
+            <h3 class="text-white font-bold tracking-widest uppercase mb-2 text-xs">Establish Connection</h3>
+            
             <div class="flex flex-wrap justify-center gap-2 mb-2 max-w-xl mx-auto w-full">
                 <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-xs font-mono rounded-xl border border-slate-800 text-slate-400 hover:text-purple-400 hover:border-purple-500 hover:bg-purple-950/20 transition duration-300 shadow-[0_0_15px_rgba(168,85,247,0.05)]">
                     TWITCH
