@@ -49,7 +49,7 @@
         .text-gradient { background: linear-gradient(to right, #ffffff, #a5b4fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
-<body class="relative min-h-screen">
+<body class="relative min-h-screen flex flex-col md:flex-row">
 
     <div id="loading-screen" class="fixed inset-0 z-[9999] bg-[#050511] flex-col items-center justify-center transition-opacity duration-500 hidden opacity-0">
         <div class="w-[60px] h-[60px] border-[4px] border-[#d8c196]/10 border-t-[#d8c196] rounded-full animate-spin mb-6 shadow-[0_0_30px_rgba(216,193,150,0.5)]"></div>
@@ -64,104 +64,140 @@
     <canvas id="star-canvas" class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 opacity-80"></canvas>
     <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-gradient-to-r from-celestial to-cyan-500 z-[9999] transition-[width] duration-150 ease-out shadow-[0_0_10px_rgba(34,211,238,0.5)]" style="width: 0%;"></div>
 
-    <header id="main-nav" class="fixed top-0 w-full z-50 bg-space/80 border-b border-indigo-900/30 backdrop-blur-md py-4 opacity-0 transition-opacity duration-500 pointer-events-none">
-        <div class="max-w-7xl mx-auto px-8 flex items-center justify-between pointer-events-auto">
+    <header id="main-nav" class="fixed top-0 left-0 w-full md:w-64 h-auto md:h-screen z-50 bg-space/90 border-b md:border-b-0 md:border-r border-indigo-900/30 backdrop-blur-md p-6 flex md:flex-col justify-between items-center md:items-start transition-opacity duration-500">
+        <div class="w-full flex md:flex-col justify-between md:justify-start items-center md:items-start gap-8">
             <div class="flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                <span class="font-bold tracking-widest uppercase text-white">RYU<span class="text-celestial">TEN</span>HOSHI</span>
+                <span class="font-bold tracking-widest uppercase text-white text-sm md:text-base">RYU<span class="text-celestial">TEN</span>HOSHI</span>
             </div>
-            <nav class="hidden md:flex space-x-8 text-[11px] font-bold tracking-widest uppercase text-slate-400">
-                <a href="#origin" class="hover:text-white transition">Origin Lore</a>
+            
+            <nav class="hidden md:flex flex-col space-y-4 text-[11px] font-bold tracking-widest uppercase text-slate-400 w-full">
+                <a href="#origin" class="hover:text-white hover:pl-2 transition-all duration-200">Origin Lore</a>
+                <hr class="border-indigo-900/30 my-2">
+                <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="hover:text-purple-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Twitch</a>
+                <a href="https://youtube.com/@RyuTenHoshi" target="_blank" class="hover:text-red-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">YouTube</a>
+                <a href="https://x.com/RyuTenHoshi" target="_blank" class="hover:text-blue-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Twitter</a>
+                <a href="#" target="_blank" class="hover:text-green-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Store</a>
+                <a href="#" target="_blank" class="hover:text-yellow-400 hover:pl-2 transition-all duration-200 flex items-center gap-2">Support</a>
+                <hr class="border-indigo-900/30 my-2">
+                <a href="lore.html" class="text-celestial hover:text-white hover:pl-2 transition-all duration-200 flex items-center gap-2">✦ Lore Archive ✦</a>
             </nav>
-            <a href="https://x.com/RyuTenHoshi" target="_blank" class="flex items-center gap-2 border border-blue-500/50 text-blue-400 px-4 py-1.5 rounded-full text-[10px] font-mono hover:border-blue-400 transition">
-                <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                TWITTER UPLINK
-            </a>
+        </div>
+
+        <div class="md:hidden flex gap-4 text-[10px] font-mono">
+            <a href="lore.html" class="text-celestial font-bold">LORE</a>
+            <a href="https://www.twitch.tv/ryutenhoshi" target="_blank" class="text-purple-400">TWITCH</a>
+        </div>
+
+        <div class="hidden md:block w-full pt-4 border-t border-indigo-900/20">
+            <p class="text-[9px] font-mono text-slate-500 uppercase tracking-wider">Archival System v2.0</p>
         </div>
     </header>
 
-    <section class="relative min-h-screen flex flex-col justify-center items-center px-4 text-center z-10 pt-20">
-        <div class="animate-bounce-short mb-6 z-20">
-            <img src="Icons.png" alt="RyuTenHoshi Logo" class="w-72 h-72 md:w-80 md:h-80 mx-auto transition-transform duration-500 ease-out hover:scale-110">
-        </div>
-        
-        <div class="border border-purple-900/50 bg-purple-950/20 text-purple-400 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-widest mb-6 uppercase flex items-center gap-2 relative z-20">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-            System Status: Archival Mode
-        </div>
+    <main class="flex-1 md:pl-64 pt-20 md:pt-0">
 
-        <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4 text-gradient relative z-20">RyuTen Hoshi</h1>
-        <div class="border border-celestial/30 text-celestial px-6 py-1.5 rounded text-sm font-bold tracking-widest mb-10 uppercase bg-[#d8c196]/10 relative z-20">
-            The Star-Soul Archive
-        </div>
-        
-        <p class="text-slate-400 max-w-3xl mb-10 leading-relaxed font-light text-sm md:text-base relative z-20">
-            I am a Star-Soul. Born from the void, forged by the Celestial Dragon Tengai—a fragment of his immortal essence fused into a burning star. My existence here is a calculated journey. I am traversing these digital realms, grinding down the resistance of a fractured soul, and documenting the history of the multiverse. This domain serves as the permanent historical record of that journey.
-        </p>
+        <section id="live-transmission" class="w-full bg-purple-950/10 border-b border-indigo-900/20 py-8 px-4 md:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
+                    <h3 class="font-mono text-[10px] tracking-[0.2em] text-purple-400 uppercase font-bold">Live Transmission Uplink</h3>
+                </div>
+                <div class="w-full aspect-video rounded-xl overflow-hidden border border-purple-950 shadow-[0_0_30px_rgba(168,85,247,0.05)]">
+                    <iframe 
+                        src="https://player.twitch.tv/?channel=ryutenhoshi&parent=ryutenhoshi.com&parent=localhost" 
+                        height="100%" 
+                        width="100%" 
+                        allowfullscreen="true"
+                        preload="auto">
+                     iframe>
+                </div>
+            </div>
+        </section>
 
-        <div class="flex flex-col sm:flex-row gap-6 items-center relative z-20">
-            <a href="https://x.com/RyuTenHoshi" target="_blank" class="bg-card border border-blue-900 hover:border-blue-500 text-blue-300 px-8 py-4 rounded-xl font-bold uppercase tracking-widest transition duration-300 text-xs shadow-2xl flex items-center gap-3">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                Follow The Transmissions
-            </a>
-        </div>
+        <section class="relative min-h-[80vh] flex flex-col justify-center items-center px-4 text-center z-10 pt-12">
+            <div class="animate-bounce-short mb-6 z-20">
+                <img src="Icons.png" alt="RyuTenHoshi Logo" class="w-72 h-72 md:w-80 md:h-80 mx-auto transition-transform duration-500 ease-out hover:scale-110">
+            </div>
+            
+            <div class="border border-purple-900/50 bg-purple-950/20 text-purple-400 px-4 py-1.5 rounded-full text-[10px] font-mono tracking-widest mb-6 uppercase flex items-center gap-2 relative z-20">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                System Status: Archival Mode
+            </div>
 
-        <div class="mt-20 flex flex-col items-center justify-center space-y-3 opacity-70 relative z-20">
-            <span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase">Scroll to uncover the lore</span>
-            <svg class="w-5 h-5 text-celestial animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </div>
-    </section>
-
-    <section id="origin" class="py-24 z-10 relative max-w-4xl mx-auto px-6">
-        <div class="inline-flex items-center gap-2 border border-cyan-500/30 bg-cyan-950/20 rounded-full px-4 py-1.5 text-[10px] font-mono tracking-widest text-cyan-400 mb-6 uppercase">
-            <span class="text-cyan-400">✦</span> Manifesto Chapter 1 <span class="text-cyan-400">✦</span>
-        </div>
-        <h2 class="text-4xl font-bold mb-12">The Star and the Sovereign</h2>
-        
-        <div class="space-y-8 text-slate-300 leading-relaxed font-light text-sm md:text-base">
-            <p>
-                People usually measure history in centuries, but the universe counts time by constellations dying. Way before the internet existed, there was just an empty void—and Tengai, a Celestial Dragon whose presence stretched across reality.
+            <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-4 text-gradient relative z-20">RyuTen Hoshi</h1>
+            <div class="border border-celestial/30 text-celestial px-6 py-1.5 rounded text-sm font-bold tracking-widest mb-10 uppercase bg-[#d8c196]/10 relative z-20">
+                The Star-Soul Archive
+            </div>
+            
+            <p class="text-slate-400 max-w-3xl mb-10 leading-relaxed font-light text-sm md:text-base relative z-20">
+                I am a Star-Soul. Born from the void, forged by the Celestial Dragon Tengai—a fragment of his immortal essence fused into a burning star. My existence here is a calculated journey. I am traversing these digital realms, grinding down the resistance of a fractured soul, and documenting the history of the multiverse. This domain serves as the permanent historical record of that journey.
             </p>
-            <p>
-                Tengai wasn't the only one out there though—there were other entities within the void. Dragons don't just sit around. They watch, everything. Sensing a change in the worlds below, the dragon reached out into the void, plucking a single, burning star out of space.
-            </p>
-            <div class="border-l-2 border-celestial pl-6 py-2 my-8 bg-card/30 backdrop-blur-sm rounded-r-xl">
-                <p class="text-celestial font-mono text-sm">
-                    "But a star by itself doesn't have the will to fight or conquer. So to give it a purpose, Tengai took a piece of his own immortal essence—a fragment of his dragon soul—and fused it right into the white-hot center of the star."
+
+            <div class="flex flex-col sm:flex-row gap-6 items-center relative z-20">
+                <a href="https://x.com/RyuTenHoshi" target="_blank" class="bg-card border border-blue-900 hover:border-blue-500 text-blue-300 px-8 py-4 rounded-xl font-bold uppercase tracking-widest transition duration-300 text-xs shadow-2xl flex items-center gap-3">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Follow The Transmissions
+                </a>
+            </div>
+
+            <div class="mt-20 flex flex-col items-center justify-center space-y-3 opacity-70 relative z-20">
+                <span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase">Scroll to uncover the lore</span>
+                <svg class="w-5 h-5 text-celestial animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </div>
+        </section>
+
+        <section id="origin" class="py-24 z-10 relative max-w-4xl mx-auto px-6">
+            <div class="inline-flex items-center gap-2 border border-cyan-500/30 bg-cyan-950/20 rounded-full px-4 py-1.5 text-[10px] font-mono tracking-widest text-cyan-400 mb-6 uppercase">
+                <span class="text-cyan-400">✦</span> Manifesto Chapter 1 <span class="text-cyan-400">✦</span>
+            </div>
+            <h2 class="text-4xl font-bold mb-12">The Star and the Sovereign</h2>
+            
+            <div class="space-y-8 text-slate-300 leading-relaxed font-light text-sm md:text-base">
+                <p>
+                    People usually measure history in centuries, but the universe counts time by constellations dying. Way before the internet existed, there was just an empty void—and Tengai, a Celestial Dragon whose presence stretched across reality.
+                </p>
+                <p>
+                    Tengai wasn't the only one out there though—there were other entities within the void. Dragons don't just sit around. They watch, everything. Sensing a change in the worlds below, the dragon reached out into the void, plucking a single, burning star out of space.
+                </p>
+                <div class="border-l-2 border-celestial pl-6 py-2 my-8 bg-card/30 backdrop-blur-sm rounded-r-xl">
+                    <p class="text-celestial font-mono text-sm">
+                        "But a star by itself doesn't have the will to fight or conquer. So to give it a purpose, Tengai took a piece of his own immortal essence—a fragment of his dragon soul—and fused it right into the white-hot center of the star."
+                    </p>
+                </div>
+                <p>
+                    The reasons why a dragon would willingly fuse a fragment of his soul—sacrificing his own strength to forge a new power—remain lost within the celestial archives. Tengai did not speak of his will; however, it could be felt. I knew exactly what my role would be, and what my journey would likely entail. That's how my soul, Hoshi, was made.
                 </p>
             </div>
-            <p>
-                The reasons why a dragon would willingly fuse a fragment of his soul—sacrificing his own strength to forge a new power—remain lost within the celestial archives. Tengai did not speak of his will; however, it could be felt. I knew exactly what my role would be, and what my journey would likely entail. That's how my soul, Hoshi, was made.
-            </p>
-        </div>
-    </section>
+        </section>
 
-    <footer id="contact" class="py-16 text-center border-t border-slate-900 relative z-10">
-        <h3 class="text-white font-bold tracking-widest uppercase mb-6 text-sm">Establish Connection</h3>
-        <div class="flex justify-center gap-4 mb-8">
-            <a href="https://x.com/RyuTenHoshi" target="_blank" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500 hover:bg-slate-900 transition shadow-[0_0_15px_rgba(59,130,246,0.1)]">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-        </div>
-        <p class="text-slate-600 text-xs font-mono uppercase tracking-widest">RyuTenHoshi | The Star-Soul Archive</p>
-    </footer>
+        <footer id="contact" class="py-16 text-center border-t border-slate-900/60 relative z-10 max-w-5xl mx-auto px-4">
+            <h3 class="text-white font-bold tracking-widest uppercase mb-6 text-sm">Establish Connection</h3>
+            <div class="flex justify-center gap-4 mb-6">
+                <a href="https://x.com/RyuTenHoshi" target="_blank" class="w-12 h-12 rounded-xl border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:border-blue-500 hover:bg-slate-900 transition shadow-[0_0_15px_rgba(59,130,246,0.1)]">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+            
+            <div class="mb-8">
+                <p class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-2">Contact Me</p>
+                <a href="mailto:contact@ryutenhoshi.com" class="text-sm font-mono text-celestial hover:text-white transition duration-200">contact@ryutenhoshi.com</a>
+            </div>
+
+            <p class="text-slate-600 text-xs font-mono uppercase tracking-widest">RyuTenHoshi | The Star-Soul Archive</p>
+        </footer>
+
+    </main>
 
     <button onclick="window.scrollTo(0,0)" id="scroll-top" class="fixed bottom-8 right-8 w-12 h-12 bg-space border border-celestial/30 rounded-full flex items-center justify-center text-celestial opacity-0 transition-opacity duration-300 z-50 hover:bg-slate-900 cursor-pointer shadow-[0_0_15px_rgba(216,193,150,0.15)]">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
     </button>
 
     <script>
-        // --- Force Scroll to Top on Page Load/Refresh ---
         if (history.scrollRestoration) { history.scrollRestoration = 'manual'; }
         
-        // --- UI Interactions ---
         window.addEventListener('scroll', () => {
             const scrollPos = window.scrollY;
-            const nav = document.getElementById('main-nav');
-            if (scrollPos > 100) { nav.classList.remove('opacity-0', 'pointer-events-none'); nav.classList.add('opacity-100'); } 
-            else { nav.classList.add('opacity-0', 'pointer-events-none'); nav.classList.remove('opacity-100'); }
-
             const scrollTopBtn = document.getElementById('scroll-top');
-            if (scrollPos > 500) { scrollTopBtn.classList.remove('opacity-0'); }
+            if (scrollPos > 500) { scrollTopBtn.classList.remove('opacity-0'); } 
             else { scrollTopBtn.classList.add('opacity-0'); }
 
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
