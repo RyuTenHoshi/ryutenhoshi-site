@@ -159,5 +159,33 @@
         initStars();
         animateStars();
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const targetLinks = ['lore.html']; // Add other internal pages here later if needed
+        
+        targetLinks.forEach(page => {
+            // Create a universal link element to trigger the browser cache
+            const prefetchLink = document.createElement('link');
+            prefetchLink.rel = 'prefetch';
+            prefetchLink.href = page;
+            
+            // Optional: Strategy 1 - Prefetch instantly as soon as the home page finishes loading
+            document.head.appendChild(prefetchLink);
+
+            // Strategy 2 - Intent-based prefetching (Backup trigger for maximum browser compatibility)
+            const btn = document.querySelector(`a[href="${page}"]`);
+            if (btn) {
+                const triggerFetch = () => {
+                    if (!document.querySelector(`link[href="${page}"][rel="prefetch"]`)) {
+                        document.head.appendChild(prefetchLink);
+                    }
+                };
+                // Pre-loads the moment the cursor moves toward the button or a finger presses it
+                btn.addEventListener('mouseenter', triggerFetch, { passive: true });
+                btn.addEventListener('touchstart', triggerFetch, { passive: true });
+            }
+        });
+    });
+</script>
 </body>
 </html>
