@@ -76,10 +76,10 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-3 mb-3">
-                <a href="lore.html" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-celestial/30 text-celestial hover:text-white hover:border-celestial hover:bg-celestial/10 transition duration-300 tracking-wider">
+                <a href="/lore/" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-celestial/30 text-celestial hover:text-white hover:border-celestial hover:bg-celestial/10 transition duration-300 tracking-wider">
                     ✦ LORE ARCHIVE ✦
                 </a>
-                <a href="store.html" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-cyan-400/30 text-cyan-400 hover:text-white hover:border-cyan-400 hover:bg-cyan-400/10 transition duration-300 tracking-wider">
+                <a href="/store/" class="px-5 py-1.5 text-[10px] md:text-xs font-mono rounded-xl border border-cyan-400/30 text-cyan-400 hover:text-white hover:border-cyan-400 hover:bg-cyan-400/10 transition duration-300 tracking-wider">
                     ✦ MERCH STORE ✦
                 </a>
             </div>
@@ -115,7 +115,8 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const targetLinks = ['lore.html', 'store.html'];
+            // UPDATED: Prefetch arrays match the new pretty directories
+            const targetLinks = ['/lore/', '/store/'];
             
             targetLinks.forEach(page => {
                 const prefetchLink = document.createElement('link');
