@@ -41,8 +41,8 @@
             transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
         }
         .lore-item.active .lore-content {
-            max-height: 3000px;
-            transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+            max-height: 4000px;
+            transition: max-height 0.6s cubic-bezier(1, 0, 1, 0);
         }
     </style>
 </head>
@@ -71,7 +71,7 @@
                 <input 
                     type="text" 
                     id="search-input" 
-                    placeholder="SEARCH CHAPTERS OR KEYWORDS (E.G., TESTING, GROUNDS)..." 
+                    placeholder="SEARCH CHAPTERS OR KEYWORDS (E.G., PROLOGUE, RYUTEN, CAELUMARI)..." 
                     class="w-full bg-card/60 backdrop-blur-md border border-indigo-900/40 text-white rounded-xl py-3 px-4 pl-11 text-xs font-mono tracking-wider focus:outline-none focus:border-celestial/60 focus:ring-1 focus:ring-celestial/30 transition shadow-[0_0_20px_rgba(0,0,0,0.5)] uppercase placeholder-slate-600"
                     oninput="filterLore()"
                 >
@@ -85,11 +85,12 @@
 
         <section id="lore-container" class="space-y-4 flex-1">
             
-            <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="testing grounds chapter 1 act 1">
+            <!-- Chapter 0 - Prologue -->
+            <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="chapter 0 prologue ryuten tengai stellar nucleosynthesis star soul hoshi dragon restraint caelumari sovereign cradle great descent">
                 <button onclick="toggleLore(this.parentElement)" class="w-full text-left p-4 md:p-5 flex justify-between items-center gap-4 focus:outline-none select-none">
                     <div class="flex flex-col gap-1">
-                        <span class="text-[9px] font-mono tracking-widest text-cyan-400 uppercase">Testing Grounds</span>
-                        <h2 class="text-base md:text-lg font-bold text-white tracking-wide transition duration-200 label-title">Testing Grounds</h2>
+                        <span class="text-[9px] font-mono tracking-widest text-celestial uppercase">Chapter 0 &mdash; Prologue</span>
+                        <h2 class="text-base md:text-lg font-bold text-white tracking-wide transition duration-200 label-title">The Birth of a Star-Soul</h2>
                     </div>
                     <svg class="w-4 h-4 text-slate-500 shrink-0 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -97,41 +98,15 @@
                 </button>
                 <div class="lore-content">
                     <div class="px-4 pb-5 md:px-5 md:pb-6 space-y-4 text-slate-300 font-light text-sm leading-relaxed border-t border-indigo-900/10 pt-4">
-                        <p>Testing grounds.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="testing grounds chapter 2 act 1">
-                <button onclick="toggleLore(this.parentElement)" class="w-full text-left p-4 md:p-5 flex justify-between items-center gap-4 focus:outline-none select-none">
-                    <div class="flex flex-col gap-1">
-                        <span class="text-[9px] font-mono tracking-widest text-purple-400 uppercase">Testing Grounds</span>
-                        <h2 class="text-base md:text-lg font-bold text-white tracking-wide transition duration-200 label-title">Testing Grounds</h2>
-                    </div>
-                    <svg class="w-4 h-4 text-slate-500 shrink-0 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="lore-content">
-                    <div class="px-4 pb-5 md:px-5 md:pb-6 space-y-4 text-slate-300 font-light text-sm leading-relaxed border-t border-indigo-900/10 pt-4">
-                        <p>Testing grounds.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="testing grounds chapter 3 act 2">
-                <button onclick="toggleLore(this.parentElement)" class="w-full text-left p-4 md:p-5 flex justify-between items-center gap-4 focus:outline-none select-none">
-                    <div class="flex flex-col gap-1">
-                        <span class="text-[9px] font-mono tracking-widest text-celestial uppercase">Testing Grounds</span>
-                        <h2 class="text-base md:text-lg font-bold text-white tracking-wide transition duration-200 label-title">Testing Grounds</h2>
-                    </div>
-                    <svg class="w-4 h-4 text-slate-500 shrink-0 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                </button>
-                <div class="lore-content">
-                    <div class="px-4 pb-5 md:px-5 md:pb-6 space-y-4 text-slate-300 font-light text-sm leading-relaxed border-t border-indigo-900/10 pt-4">
-                        <p>Testing grounds.</p>
+                        <p>Before this world ever had a concept of time, there was just the void.</p>
+                        <p>Somewhere deep in the uncharted, furthest corners of the cosmos, the celestial dragon known as the Abyss Elder, RyuTen Tengai, started a massive cosmic forging process called Stellar Nucleosynthesis. He reached out into the darkness, pulled a living star from the deep, and bound a broken piece of his own ancient dragon soul directly into the heat of the forge. Out of that cosmic fire, he shaped a unique entity, a "Star-soul," the first of its kind.</p>
+                        <p>That entity was me, Hoshi.</p>
+                        <p>RyuTen kept the real purpose behind my creation entirely to himself, but I could still feel the heavy, burning will of the dragon vibrating deep inside my newborn core. He gave me a physical vessel to carry, an elven form that mirrored the rulers of the world below, since that was exactly where he planned to drop me to start my journey. But even as he built me, the Abyss Elder was fully aware of how dangerous his creation could be. He saw a terrifying amount of potential in my newborn state, a power that could easily become a threat to the dragon himself, or completely unbalance multiple universes if left untamed. To keep a massive cosmic disaster from happening, RyuTen locked a heavy draconic restriction right over my core, which I call The Dragon's Restraint.</p>
+                        <p>This phantasmal seal wrapped tightly around my core, heavily suppressing my raw Star Magic. He wasn't going to let me use the full power of the cosmos all at once. Instead, I was forced to start from nothing, slowly adapting and learning to master my restricted magic over centuries so my raw aura wouldn't tear reality apart. RyuTen's Absolute Warning <span class="text-celestial italic">"If this power breaks free too soon, the world will face a catastrophe."</span> Once the seal clicked into place, my star-soul was dropped straight out of the heavens, tumbling down through the dark void toward the planet below.</p>
+                        <p>Down beneath the clouds, the continent of Caelumari was waking up to a completely ordinary day. It was a harsh world run strictly by bloodlines and raw force. The arrogant Caelumari Elves held total control over the land, running everything from massive, gleaming strongholds spread across the continent. The biggest fortress of all was The Sovereign Cradle, a massive capital built strictly for pure Caelumari Elf blood. Any outcast races who tried to live inside the borders had been driven away long ago, forced to survive out in the dangerous frontier or face a slow, quiet extinction.</p>
+                        <p>The Cradle was surrounded by massive, jagged mountain ranges that formed a brutal natural wall against the rest of the world. Tucked away in those frozen peaks were hidden, sleeping dungeons, strange pockets of torn space that only cracked open when the wild northern storms violently collided with unpredictable aetheric Convergences.</p>
+                        <p>Time was something this world didn't actually track yet. The mortal races didn't keep years or follow a set calendar; they just drifted along blindly through an unorganised flow of days.</p>
+                        <p>But everything changed the moment my falling star cut through the atmosphere, heading straight for the deepest caves in the northern peaks. The old, unstructured era of the world was officially over. The Year of the Great Descent had arrived.</p>
                     </div>
                 </div>
             </div>
