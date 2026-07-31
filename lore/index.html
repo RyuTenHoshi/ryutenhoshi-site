@@ -41,7 +41,7 @@
             transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
         }
         .lore-item.active .lore-content {
-            max-height: 4000px;
+            max-height: 5000px;
             transition: max-height 0.6s cubic-bezier(1, 0, 1, 0);
         }
     </style>
@@ -71,7 +71,7 @@
                 <input 
                     type="text" 
                     id="search-input" 
-                    placeholder="SEARCH CHAPTERS OR KEYWORDS (E.G., PROLOGUE, RYUTEN, CAELUMARI)..." 
+                    placeholder="SEARCH CHAPTERS OR KEYWORDS (E.G., PROLOGUE, PROFILE, HOSHI)..." 
                     class="w-full bg-card/60 backdrop-blur-md border border-indigo-900/40 text-white rounded-xl py-3 px-4 pl-11 text-xs font-mono tracking-wider focus:outline-none focus:border-celestial/60 focus:ring-1 focus:ring-celestial/30 transition shadow-[0_0_20px_rgba(0,0,0,0.5)] uppercase placeholder-slate-600"
                     oninput="filterLore()"
                 >
@@ -85,6 +85,67 @@
 
         <section id="lore-container" class="space-y-4 flex-1">
             
+            <!-- Character Profile Section -->
+            <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="profile hoshi tengai ryuten tengai abyss elder celestial dragon broadcast archive anatomy of the seal realm preferences">
+                <button onclick="toggleLore(this.parentElement)" class="w-full text-left p-4 md:p-5 flex justify-between items-center gap-4 focus:outline-none select-none">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[9px] font-mono tracking-widest text-purple-400 uppercase">System Data &mdash; Subject File</span>
+                        <h2 class="text-base md:text-lg font-bold text-white tracking-wide transition duration-200 label-title">Character Profile: Hoshi Tengai</h2>
+                    </div>
+                    <svg class="w-4 h-4 text-slate-500 shrink-0 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="lore-content">
+                    <div class="px-4 pb-5 md:px-5 md:pb-6 space-y-6 text-slate-300 font-light text-sm leading-relaxed border-t border-indigo-900/10 pt-4">
+                        
+                        <!-- Core Identity -->
+                        <div class="space-y-2">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-celestial font-semibold">🪐 Core Identity</h3>
+                            <ul class="space-y-1.5 pl-2 border-l border-indigo-900/30 text-xs">
+                                <li><strong class="text-white font-medium">Full Name:</strong> Hoshi Tengai (天外星) &mdash; The Star-Soul belonging to the ancestral house of Tengai.</li>
+                                <li><strong class="text-white font-medium">My Creator:</strong> RyuTen Tengai (天外竜天) &mdash; The Abyss Elder Dragon.</li>
+                                <li><strong class="text-white font-medium">My Creation:</strong> Forged from a fragment of a Dragon Soul violently merged with a pure star.</li>
+                                <li><strong class="text-white font-medium">Apparent Age:</strong> 1,063 Cycles (As of 2026 Human Reckoning / True Star form is infinitely older)</li>
+                                <li><strong class="text-white font-medium">Birthday:</strong> The 26th Beat of Nova-Hoshi (July 26th)</li>
+                                <li><strong class="text-white font-medium">Height:</strong> 185.5 cm</li>
+                                <li><strong class="text-white font-medium">Vessel Classification:</strong> Caelumari Elf Constellation Seal (Stable)</li>
+                            </ul>
+                        </div>
+
+                        <!-- The Broadcast Archive -->
+                        <div class="space-y-2">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-celestial font-semibold">📡 The Broadcast Archive (Streaming Objective)</h3>
+                            <ul class="space-y-1.5 pl-2 border-l border-indigo-900/30 text-xs">
+                                <li><strong class="text-white font-medium">The Earth Link:</strong> A localised digital stream transmission array to record my journey through this sector of the multiverse.</li>
+                                <li><strong class="text-white font-medium">The Observer Pact:</strong> The Vanguard&mdash;the observers marked by starlight&mdash;provide the anchoring focus needed to keep my vessel stable here.</li>
+                                <li><strong class="text-white font-medium">Chrono-Dilation Metric:</strong> My audience's dimension runs 100x slower than my reality. For every 1 year you experience, I age 100 years. I am currently broadcasting from 1,063 years post-awakening.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Anatomy of the Seal -->
+                        <div class="space-y-2">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-celestial font-semibold">🎨 Anatomy of the Seal (Current Era Design Lore)</h3>
+                            <ul class="space-y-1.5 pl-2 border-l border-indigo-900/30 text-xs">
+                                <li><strong class="text-white font-medium">The Nebula Cape & Star Brooches:</strong> Physical anchors locking my star-soul’s infinite radiance into a localised elven form.</li>
+                                <li><strong class="text-white font-medium">The Facial Markings:</strong> Small stress fractures on the vessel where the raw weight of the dragon soul tries to break through.</li>
+                                <li><strong class="text-white font-medium">Starlight Hair & Eyes:</strong> Vibrant electric blue hair and deep eyes connecting this physical shell to my true cosmic form.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Realm Preferences -->
+                        <div class="space-y-2">
+                            <h3 class="text-xs font-mono uppercase tracking-widest text-celestial font-semibold">🗺️ Realm Preferences</h3>
+                            <ul class="space-y-1.5 pl-2 border-l border-indigo-900/30 text-xs">
+                                <li><strong class="text-white font-medium">Likes:</strong> Fast, high-intensity tactical setups (FPS/Fighters), deep high-fantasy historical archives (lore-heavy RPGs), and pushing the vessel's limits with heavy gym training.</li>
+                                <li><strong class="text-white font-medium">Dislikes:</strong> "Impassable" spatial boundaries, disruptions to my recovery/fasting windows, and laggy, unoptimised local dimensions.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
             <!-- Chapter 0 - Prologue -->
             <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="chapter 0 prologue ryuten tengai stellar nucleosynthesis star soul hoshi dragon restraint caelumari sovereign cradle great descent">
                 <button onclick="toggleLore(this.parentElement)" class="w-full text-left p-4 md:p-5 flex justify-between items-center gap-4 focus:outline-none select-none">
@@ -107,6 +168,54 @@
                         <p>The Cradle was surrounded by massive, jagged mountain ranges that formed a brutal natural wall against the rest of the world. Tucked away in those frozen peaks were hidden, sleeping dungeons, strange pockets of torn space that only cracked open when the wild northern storms violently collided with unpredictable aetheric Convergences.</p>
                         <p>Time was something this world didn't actually track yet. The mortal races didn't keep years or follow a set calendar; they just drifted along blindly through an unorganised flow of days.</p>
                         <p>But everything changed the moment my falling star cut through the atmosphere, heading straight for the deepest caves in the northern peaks. The old, unstructured era of the world was officially over. The Year of the Great Descent had arrived.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter 1 - The Great Descent -->
+            <div class="lore-item bg-card/20 backdrop-blur-sm border border-indigo-900/20 rounded-xl transition duration-300 hover:border-indigo-900/50 overflow-hidden" data-keywords="chapter 1 the great descent sovereign cradle dragon's pulse aetheric convergence draugr animi revenants churrers dungeon boss star magic">
+                <button onclick="toggleLore(this.parentElement)" class="w-full text-left p-4 md:p-5 flex justify-between items-center gap-4 focus:outline-none select-none">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-[9px] font-mono tracking-widest text-cyan-400 uppercase">Chapter 1 &mdash; The Great Descent</span>
+                        <h2 class="text-base md:text-lg font-bold text-white tracking-wide transition duration-200 label-title">The Awakening in the Depths</h2>
+                    </div>
+                    <svg class="w-4 h-4 text-slate-500 shrink-0 transform transition-transform duration-300 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="lore-content">
+                    <div class="px-4 pb-5 md:px-5 md:pb-6 space-y-4 text-slate-300 font-light text-sm leading-relaxed border-t border-indigo-900/10 pt-4">
+                        <p>It was a pitch black night in The Sovereign Cradle, with the kind of severe weather the region had never experienced before. Thunder shook the stone foundations of the fortress, lightning tore the sky apart and wild currents of raw magic ripped through the air, twisting the environment wherever it touched.</p>
+                        <p>Magic is an invisible force you only notice as a chill on the wind, but tonight, it became completely visible as the laws of the region started to crack. The kinetic force of the storm aggressively forced open a sealed entrance to a brand new dungeon. Monsters started spilling out immediately, pouring out as if they’d been building up pressure inside the earth for millennia. Even with the lethal conditions outside, an adventuring party had to be sent out right away. If they didn't hold the monsters back, the entire stronghold was going to be completely overrun.</p>
+                        <p>The adventurers who stepped up were the toughest veterans the Cradle had to offer. One was built like a stone wall, carrying a massive great shield and a heavy mace. Two others used beautifully crafted, high-quality elvish swords. The fourth was an incredibly fast dual-wielder, relying on daggers and throwing knives to keep his movements fluid. Leading them was a veteran scout, tracking the terrain alongside his companion, a massive northern wolf.</p>
+                        <p>"Hold the line!" the shield-wielder growled, burying the edge of his shield deep into the mud as the first wave of monsters hit them. "If this place falls, the outcasts at the border are going to swarm the northern gates. The Cradle stays pure, by order of the Sovereign!"</p>
+                        <p>They pushed the front line straight into the dark, yawning mouth of the cavern. But as they fought their way across the jagged ground, the veteran scout grew visibly pale under his hood. The dungeon was filled with an impossible mix of creatures. Usually, a dungeon follows a strict theme set by its core, creating a uniform pack of monsters to match the environment. Here, the natural order was totally broken.</p>
+                        <p>"A Draugr fighting with the Animi?!" the scout yelled over the noise of the battle, sounding completely panicked. "This shouldn't be happening! The aetheric currents have never broken down like this before! Time and space are literally bleeding together in here!"</p>
+                        <p>They fought their way through everything from mindless Revenants and animated Animi to clicking Churrers and frozen Draugr. There was no end to the conflicting types of monsters coming out of the dark. These creatures should not have been able to coexist at all, and some were variants that the scouts had never even seen in the Cradle's official records. Still, even outnumbered, the party kept moving forward. They cleared floor after floor until, after a long and exhausting stretch of combat, they finally broke through the doors to the boss room.</p>
+                        <p>And that is exactly where my adventure begins.</p>
+                        <p>I showed up in the world as a newborn and completely bare, vulnerable. But even though my physical elven shell was fragile, my actual consciousness had just been pulled straight from a star through Stellar Nucleosynthesis.</p>
+                        <p>The moment I woke up, before I could even get my eyes open, time stopped dead. A heavy, clock-like chime echoed right across the entire land. The messy, unorganised timeline of the world came to a halt as my star-soul aligned with the planet's broken aetheric essence. In that second, the basic fabric of reality completely shifted. The planet left its natural orbit, pulling its entire mass around to align to my soul. The whole world felt the shift happen. In a split second, everything they used to know about time was gone, permanently locked to my Star-soul.</p>
+                        <p>Through that massive cosmic friction, the ambient magic turned into a volatile, high stakes engine of survival that we now call <span class="text-celestial">'The Dragon's Pulse'</span>.</p>
+                        <p>Even with my eyes closed, I could instinctively feel the massive weight of this new, synchronised reality. The world wasn't going to have normal days or years anymore. From then on, time was measured as by my will. In order for time not to fracture and destroy the very planetary existence I was in, I had to create a new time logic in that very moment, and now time was measured by a single <span class="text-celestial">'Beat'</span>, a brutal 47-hour cycle split between an agonisingly slow 39-hour stretch known as <span class="text-celestial">'The Dragon's Gaze'</span>, where the sun sat completely still in the sky, and a terrifying 8-hour sprint known as <span class="text-celestial">'The Dragon's Blink'</span>, a supernatural night phase that would freeze or rip apart anything caught outside the stronghold. This was the best I could do to save this reality from slipping into 'Lost in Time'.</p>
+                        <p>When I finally opened my eyes, the sheer sensory shock of this new reality hit me all at once.</p>
+                        <p>A massive dungeon boss was already towering right in front of me. The creature looked completely furious and confused that a newborn elf—the literal cause of the world's timeline breaking—had somehow manifested right in the middle of its nest, dropping straight into its private room. Looking past the giant monster, I noticed the obsidian walls of the chamber. Carved right into the stone were the weeping faces of long-forgotten races, the exact history the Caelumari Elves had spent centuries trying to bury deep under their strongholds.</p>
+                        <p>Looking up at this massive, enraged monster, my very first thought was simple, <span class="text-celestial italic">"You have got to be kidding me."</span></p>
+                        <p>I tried to reach deep inside my essence to spark the ancient Star Magic I could feel thrumming in my core, a primordial power I was supposed to use purely by instinct. But the exact moment that energy flared up, the Abyss Elder's seal snapped back; I had already used too much energy on the time logic and was unable to use it further.</p>
+                        <p>Heavy, phantasmal chains of draconic energy wrapped tightly around my soul, shutting my power down with absolute force. The memory of my creator's warning echoed clearly in my head: <span class="text-celestial italic">If this power breaks free too soon, the world will face a catastrophe.</span> The dragon's seal was just too fresh and too absolute. Every single attempt failed completely. <span class="text-celestial italic">"This is really not good,"</span> is the only words I could come up with.</p>
+                        <p>Totally paralyzed as my star magic flickered out, I could only watch as the dungeon boss raised a massive, devastating claw to crush me into the floor. But right before it struck, a loud panicked shout echoed from the broken entrance of the room: <span class="text-celestial italic">"Look over there! It took one of our kids from the outer rings!"</span></p>
+                        <p><span class="text-celestial italic">"I'll handle the kid! Keep the beast busy!"</span> a second voice roared. Before the boss could drop its hand, the fast, dual-wielding elf leaped straight through the shadows. He completely misunderstood how I got there, assuming I was a casualty from the Cradle's outer rings. The warrior scooped me up into a protective hold and dove behind some cover while the rest of the veteran raid party charged forward, their weapons glowing with elven-infused magic as they took on the boss.</p>
+                        <p>The entire room turned into total chaos. While I stayed tucked away behind a thick wall of stone, the high-tier raiders moved with incredibly smooth, calculated precision.</p>
+                        <p>The massive shield elf stepped right into the path of the boss, his shield taking a massive, seismic hit from the claws that sent physical shockwaves across the obsidian floor. The two swordsmen moved like silver blurs, their blades humming with pure enchantments that cut glowing white arcs through the dark air. High above them, the dual-wielder was a ghost, planting throwing knives straight into the beast's joints to mess up its focus while the scout’s wolf tore at its weak spots to throw it off balance.</p>
+                        <p>But something was seriously wrong. The boss was acting strange, like it was being evolved. Fueled by the raw kinetic friction of the brand-new timeline, its veins were pulsing with a bright, silver-white light. It was actively mutating in real-time, its strength climbing fast as it tried to process the new cosmic rhythm anchoring the planet.</p>
+                        <p>With a massive roar that shook dust down from the cave ceiling, the beast lunged forward, throwing its whole weight into one final, desperate strike. But the party was relentless. The shield-wielder deflected the impact with a massive parry, leaving the beast's glowing core completely wide open. In a quick flash of coordinated steel, the two swordsmen drove their blades deep into its chest while the dual-wielder dropped straight from the ceiling, burying a dagger into the back of its neck.</p>
+                        <p>The monster went completely rigid, its silver veins turning into dull gray stone before it collapsed, evaporating into a heavy cloud of mist. Suddenly, the room went completely quiet, but it was an unnatural, heavy kind of silence. The usual background hum of the dungeon was totally gone. The fast elf dropped down from the rocks, ran over to me, and carefully picked me up. <span class="text-celestial italic">"The kid's fine. But look at him... he doesn't have a brand, and he's not wearing any clothes from the outer frontier rings. Where did he even come from?"</span></p>
+                        <p>The shield-wielder wiped black blood off his mace and walked over to look down at me. <span class="text-celestial italic">"It doesn't matter. A pure-blooded elven baby sitting in the middle of a high stakes convergence? It's a miracle the Churrers didn't eat him alive."</span></p>
+                        <p>The scout could feel something in the air. <span class="text-celestial italic">"Something's wrong,"</span> the scout whispered. He was staring hard at a complicated brass device strapped to his wrist, a temporal astrolabe they used to track local aether. The gears inside were spinning backward at a crazy speed before locking up with a loud, rigid click. <span class="text-celestial italic">"My astrolabe... it’s completely frozen. The magic pressure is climbing way too fast."</span></p>
+                        <p><span class="text-celestial italic">"We need to move. Now,"</span> the shield-wielder ordered, sensing the shift in the air. The party started running, retracing their steps back through the empty, echoing halls of the dungeon. I kept my eyes wide open, taking everything in. I could feel the invisible weight of the draconic seal holding my core back, but more than that, I could feel the outside world waiting. The basic reality of this planet had literally bent itself around my awakening, and the fallout was about to show up.</p>
+                        <p>We finally reached the edge of the dungeon, bursting out through the cracked stone doorway onto the cliffs of the massive northern mountain range. The adventurers stopped in their tracks. Nobody said a word.</p>
+                        <p>The dark and violent storm that had been tearing the mountains apart an hour ago was completely gone. The sky had turned into a thick, heavy, silver-gold sheen that sat over the landscape like a solid pane of glass. The wind was completely dead. Thousands of feet below us, the white spires of The Sovereign Cradle were glowing brightly, but the shadows cast by the towers were perfectly rigid, completely locked in place.</p>
+                        <p>The sun sat completely still at the top of the sky, refusing to set. <span class="text-celestial italic">"The sky..."</span> the dual-wielder whispered, almost dropping his weapons. <span class="text-celestial italic">"The storm didn't blow over. The horizon is holding still."</span></p>
+                        <p><span class="text-celestial italic">"The sun isn't moving..."</span> the scout said while he looked up, total panic in his eyes. <span class="text-celestial italic">"We need to ride straight for the high commanders of the Cradle. We have to find out what the hell is going on."</span></p>
                     </div>
                 </div>
             </div>
